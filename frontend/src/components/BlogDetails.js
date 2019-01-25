@@ -19,7 +19,9 @@ class BlogDetails extends Component {
 
   handleRemove() {
     this.props.removePost(this.props.postId);
-    this.props.history.push('/');
+    console.log('we are going to push to history now');
+    console.log('this.props.history.push ', this.props.history);
+    this.props.history.replace('/');
   }
 
   toggleEdit() {

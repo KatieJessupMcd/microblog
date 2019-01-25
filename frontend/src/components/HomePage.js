@@ -3,6 +3,10 @@ import uuid from 'uuid';
 import BlogCard from './BlogCard';
 
 class HomePage extends Component {
+  componentDidMount() {
+    this.props.getAllPosts();
+  }
+
   render() {
     if (!this.props.posts) {
       return <h3>Loading posts...</h3>;

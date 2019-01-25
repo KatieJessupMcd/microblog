@@ -5,7 +5,6 @@ import { getAllPosts, addNewPost, editPost } from '../actions';
 
 class AppContainer extends Component {
   render() {
-    console.log('APP CONTAINER');
     return <App {...this.props} />;
   }
 }

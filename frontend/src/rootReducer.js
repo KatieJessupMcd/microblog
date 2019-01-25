@@ -30,7 +30,7 @@ function rootReducer(state = DEFAULT_STATE, action) {
       newPost.comments = {};
       // let copiedPosts = JSON.parse(JSON.stringify(state.posts));
       let copiedPosts = _.cloneDeep(state.posts);
-      copiedPosts[uuid()] = newPost;
+      copiedPosts[newPost.id] = newPost;
       return { posts: copiedPosts };
     }
     case LOAD_ALL_POSTS: {
@@ -38,9 +38,9 @@ function rootReducer(state = DEFAULT_STATE, action) {
       return { posts: allPosts };
     }
     case REMOVE_POST: {
-      let postId = action.payload;
+      let removedPostId = action.payload;
       let copiedPosts = _.cloneDeep(state.posts);
-      delete copiedPosts[postId];
+      delete copiedPosts[removedPostId];
       return { posts: copiedPosts };
     }
     case EDIT_POST: {
@@ -66,7 +66,6 @@ function rootReducer(state = DEFAULT_STATE, action) {
       let post = action.payload;
       let copiedPosts = _.cloneDeep(state.posts);
       copiedPosts[post.id] = post;
-      console.log('reducer', post);
       return { posts: copiedPosts };
     }
     case SHOW_ERR: {

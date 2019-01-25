@@ -14,63 +14,63 @@ class App extends Component {
     this.state = {
       posts: []
     };
-    this.addPost = this.addPost.bind(this);
-    this.removePost = this.removePost.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
-    this.addComment = this.addComment.bind(this);
-    this.deleteComment = this.deleteComment.bind(this);
+    // this.addPost = this.addPost.bind(this);
+    // this.removePost = this.removePost.bind(this);
+    // this.handleEdit = this.handleEdit.bind(this);
+    // this.addComment = this.addComment.bind(this);
+    // this.deleteComment = this.deleteComment.bind(this);
   }
 
   componentDidMount() {
     this.props.getAllPosts();
   }
 
-  addPost(postObj) {
-    postObj.id = uuid();
-    let posts = [...this.state.posts, postObj];
-    this.setState({ posts });
-  }
+  // addPost(postObj) {
+  //   postObj.id = uuid();
+  //   let posts = [...this.state.posts, postObj];
+  //   this.setState({ posts });
+  // }
 
-  removePost(id) {
-    this.setState({ posts: this.state.posts.filter(post => post.id !== id) });
-  }
+  // removePost(id) {
+  //   this.setState({ posts: this.state.posts.filter(post => post.id !== id) });
+  // }
 
-  handleEdit(obj, id) {
-    let newPosts = this.state.posts.filter(post => post.id !== id);
-    let editedPost = {
-      title: obj.title,
-      description: obj.description,
-      body: obj.body,
-      id: id
-    };
-    newPosts = [...newPosts, editedPost];
-    this.setState({ posts: newPosts });
-  }
+  // handleEdit(obj, id) {
+  //   let newPosts = this.state.posts.filter(post => post.id !== id);
+  //   let editedPost = {
+  //     title: obj.title,
+  //     description: obj.description,
+  //     body: obj.body,
+  //     id: id
+  //   };
+  //   newPosts = [...newPosts, editedPost];
+  //   this.setState({ posts: newPosts });
+  // }
 
-  addComment(comment, postId) {
-    let allPosts = [...this.state.posts];
-    let postIdx = allPosts.findIndex(post => post.id === postId);
+  // addComment(comment, postId) {
+  //   let allPosts = [...this.state.posts];
+  //   let postIdx = allPosts.findIndex(post => post.id === postId);
 
-    if (allPosts[postIdx].comments) {
-      let newComments = [...allPosts[postIdx].comments];
-      newComments.push({ text: comment.comment, id: uuid() });
-      allPosts[postIdx].comments = newComments;
-    } else {
-      allPosts[postIdx].comments = [];
-      allPosts[postIdx].comments.push({ text: comment.comment, id: uuid() });
-    }
-    this.setState({ posts: allPosts });
-  }
+  //   if (allPosts[postIdx].comments) {
+  //     let newComments = [...allPosts[postIdx].comments];
+  //     newComments.push({ text: comment.comment, id: uuid() });
+  //     allPosts[postIdx].comments = newComments;
+  //   } else {
+  //     allPosts[postIdx].comments = [];
+  //     allPosts[postIdx].comments.push({ text: comment.comment, id: uuid() });
+  //   }
+  //   this.setState({ posts: allPosts });
+  // }
 
-  deleteComment(postId, commentId) {
-    let allPosts = [...this.state.posts];
-    let postIdx = allPosts.findIndex(post => post.id === postId);
-    let allComments = [...allPosts[postIdx].comments];
+  // deleteComment(postId, commentId) {
+  //   let allPosts = [...this.state.posts];
+  //   let postIdx = allPosts.findIndex(post => post.id === postId);
+  //   let allComments = [...allPosts[postIdx].comments];
 
-    let newComments = allComments.filter(comment => comment.id !== commentId);
-    allPosts[postIdx].comments = newComments;
-    this.setState({ posts: allPosts });
-  }
+  //   let newComments = allComments.filter(comment => comment.id !== commentId);
+  //   allPosts[postIdx].comments = newComments;
+  //   this.setState({ posts: allPosts });
+  // }
 
   render() {
     console.log(' APP RERENDER');

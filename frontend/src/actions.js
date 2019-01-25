@@ -21,7 +21,6 @@ export function getAllPosts() {
     try {
       const res = await axios.get(POSTS_URL);
       const posts = res.data;
-      console.log('posts', posts);
 
       const postsObj = posts.reduce((accumulator, post) => {
         const { id, ...rest } = post;
@@ -60,7 +59,21 @@ export function addPost(postObj) {
     payload: postObj
   };
 }
+
 export function removePost(postId) {
+  return async function(dispatch) {
+    console.log('THIS IS THE POSTID ', postId);
+    try {
+      await axios.delete(`${POSTS_URL}/${postId}`);
+      dispatch(removeOnePost(postId));
+    } catch (error) {
+      const errorMessage = error.response.data;
+      dispatch(showErr(errorMessage));
+    }
+  };
+}
+
+export function removeOnePost(postId) {
   return {
     type: REMOVE_POST,
     payload: postId

@@ -13,10 +13,12 @@ class BlogDetailsContainer extends Component {
   render() {
     return (
       <BlogDetails
+        {...this.props}
         post={this.props.post}
         postId={this.props.postId}
         editPost={this.props.editPost}
         getOnePost={this.props.getOnePost}
+        removePost={this.props.removePost}
       />
     );
   }
