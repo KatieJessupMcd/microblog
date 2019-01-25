@@ -130,6 +130,18 @@ export function addComment(commentObj, postId) {
 }
 
 export function deleteComment(commentId, postId) {
+  return async function(dispatch) {
+    try {
+      await axios.delete(`${POSTS_URL}/${postId}/comments/${commentId}`);
+      dispatch(deleteOneComment(commentId, postId));
+    } catch (error) {
+      const errorMessage = error.response.data;
+      dispatch(showErr(errorMessage));
+    }
+  };
+}
+
+export function deleteOneComment(commentId, postId) {
   return {
     type: DELETE_COMMENT,
     payload: { commentId, postId }
