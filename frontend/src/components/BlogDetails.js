@@ -71,7 +71,7 @@ class BlogDetails extends Component {
           </Card>
           <CommentList
             postId={this.props.postId}
-            addComment={this.props.addComment}
+            addNewComment={this.props.addNewComment}
             deleteComment={this.props.deleteComment}
             comments={this.props.post.comments}
           />

@@ -4,7 +4,7 @@ import BlogDetails from '../components/BlogDetails';
 import {
   removePost,
   editPost,
-  addComment,
+  addNewComment,
   deleteComment,
   getOnePost
 } from '../actions';
@@ -32,5 +32,5 @@ function mapStateToProps(state, ownProps) {
 
 export default connect(
   mapStateToProps,
-  { removePost, editPost, deleteComment, addComment, getOnePost }
+  { removePost, editPost, deleteComment, addNewComment, getOnePost }
 )(BlogDetailsContainer);

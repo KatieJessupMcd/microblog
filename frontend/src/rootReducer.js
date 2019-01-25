@@ -51,9 +51,10 @@ function rootReducer(state = DEFAULT_STATE, action) {
       return { posts: copiedPosts };
     }
     case ADD_COMMENT: {
-      let { commentObj, postId } = action.payload;
+      let { text, id } = action.payload.commentObj;
+      let { postId } = action.payload;
       let copiedPosts = _.cloneDeep(state.posts);
-      copiedPosts[postId].comments[uuid()] = { text: commentObj.comment };
+      copiedPosts[postId].comments[id] = { text: text };
       return { posts: copiedPosts };
     }
     case DELETE_COMMENT: {

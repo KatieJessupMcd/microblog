@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class CommentForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { comment: '' };
+    this.state = { text: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -15,17 +15,23 @@ class CommentForm extends Component {
   }
 
   handleSubmit(e) {
+    console.log(this.state);
     e.preventDefault();
-    this.props.addComment(this.state, this.props.postId);
-    this.setState({ comment: '' });
+    this.props.addNewComment(this.state, this.props.postId);
+    this.setState({ text: '' });
   }
 
   render() {
     return (
       <div className="CommentForm">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="comment">Comment</label>
-          <input name="comment" id="comment" onChange={this.handleChange} />
+          <label htmlFor="text">Comment</label>
+          <input
+            defaultValue=""
+            name="text"
+            id="text"
+            onChange={this.handleChange}
+          />
           <button>Add</button>
         </form>
       </div>

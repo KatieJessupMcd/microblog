@@ -106,6 +106,22 @@ export function editedPost(postObj, postId) {
   };
 }
 
+export function addNewComment(commentObj, postId) {
+  return async function(dispatch) {
+    try {
+      console.log('commentObj ', commentObj);
+      const res = await axios.post(
+        `${POSTS_URL}/${postId}/comments`,
+        commentObj
+      );
+      dispatch(addComment(res.data, postId));
+    } catch (error) {
+      const errorMessage = error.response.data;
+      dispatch(showErr(errorMessage));
+    }
+  };
+}
+
 export function addComment(commentObj, postId) {
   return {
     type: ADD_COMMENT,

@@ -24,7 +24,7 @@ class CommentList extends Component {
             })}
           </ul>
           <CommentForm
-            addComment={this.props.addComment}
+            addNewComment={this.props.addNewComment}
             deleteComment={this.props.deleteComment}
             postId={this.props.postId}
           />
@@ -36,7 +36,7 @@ class CommentList extends Component {
           <hr />
           <h4>Comments</h4>
           <CommentForm
-            addComment={this.props.addComment}
+            addNewComment={this.props.addNewComment}
             deleteComment={this.props.deleteComment}
             postId={this.props.postId}
           />
