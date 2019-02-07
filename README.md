@@ -1,6 +1,6 @@
 # Microblog
 
-Microblog is a mock blog app that allows users to post, edit, view, and delete blog postings. Users can also create, view, and delete comments for each blog posting. The frontend is built with React and functionality is built on Redux and React Router. The backen is built on Express. 
+Microblog is a mock blog app that allows users to post, edit, view, and delete blog postings. Users can also create, view, and delete comments for each blog posting. The frontend is built with React and functionality is built on Redux and React Router. The backend is built on Express. 
 
 # Setup
 
